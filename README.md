@@ -1,3 +1,0 @@
-# LangageC
-hi
-zzz
