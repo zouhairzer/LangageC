@@ -14,6 +14,7 @@ int nombre = 0;
 
 void Menu(){
     int choix;
+    char buffer[256];
     do{
         printf("****************************************** Gerer votre librairie****************************************\n");
         printf("1-> Ajouter un livre                    : \n");
@@ -25,6 +26,14 @@ void Menu(){
         printf("++++++++++++++++++++++++++++++++++++++++++++\n");
         printf("     Taper votre Choix   : ");
         scanf("%d",&choix);
+
+        if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+            if (sscanf(buffer, "%d", &choix) != 1) {
+                choix = -1;
+            }
+            else
+                if(sscanf("%d",&choix) > 0);
+        }
 
         switch(choix){
             case 1:
@@ -46,7 +55,7 @@ void Menu(){
                 printf("------>Taper un choix entre 1 et 5 s il vous plait :<------\n");
                 break;
             }
-     }while(choix != 6 );
+     }while(choix != 0 );
 
 }
 
@@ -65,8 +74,9 @@ void AjouterLivre(){
             printf("Entrer le prix de livre     : ");
             scanf("%f",&livre[nombre].prix);
 
-            printf("Entrer la Quantite de livre : \n");
+            printf("Entrer la Quantite de livre : ");
             scanf("%d",&livre[nombre].Quantite);
+            printf("\n");
 
             nombre++;
         }
@@ -78,10 +88,23 @@ void AfficherLivres(){
         printf("le Titre de livre    est :  %s\n",livre[i].Titre);
         printf("Auteur de livre      est : %s\n", livre[i].Auteur);
         printf("le prix de livre     est : %.2f\n", livre[i].prix);
-        printf("la Quantite de livre est : %d", livre[i].Quantite);
+        printf("la Quantite de livre est : %d\n", livre[i].Quantite);
     }
 }
-void ModifierQuLinvre(){}
+void ModifierQuLinvre(){
+    int i;
+    char cherch[50];
+
+    printf("Chercher sur un titre un livre  : ");
+    scanf(" %[^\n]s",&cherch);
+
+    for(i = 0; i < livre; i++){
+        if(livre[i].Titre == cherch){
+            printf("Entrer la Quantite de livre : ");
+            scanf("%d",&livre[nombre].Quantite);
+        }
+    }
+}
 void SupprimerLivre(){}
 void AfficherTotal(){}
 
