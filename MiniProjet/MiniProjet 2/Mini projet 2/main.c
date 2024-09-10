@@ -69,6 +69,7 @@ void ajouterContact(){
     printf("Entrer votre numero : ");
     scanf(" %[^\n]s", &contacts[i].numero);
     nombreContact ++;
+    printf
     /*for(i = 0; i < nombreContact; i++){
         if(strcmp(contacts[i].numero,contacts.numero)==0){
             nombreContact ++;
@@ -80,7 +81,7 @@ void ajouterContact(){
 
 void afficherContact(){
     int i;
-    for(i = 0; i < nombreContact; i++){
+
                 printf("jjjjjjjjjjjjjjjjjjj\n");
         printf("Votre Nom est : %s\n", contacts[i].nom);
         printf("Votre prenom est : %s\n", contacts[i].prenom);
