@@ -8,12 +8,19 @@ typedef struct{
     char nom[50];
     char prenom[50];
     char date_de_naissance[50];
-    char departement[100][50];
+    char departement[50];
     float note_general;
 }Etudiant;
 
 
+typedef struct{
+    char nom_departement[50];
+    char nom_etudiant[50];
+    float note_general;
+}Departemen;
+
 Etudiant Etudiants[100];
+Departemen Departemens[100];
 
 int nombre_etudiant = 0;
 int i;
@@ -62,9 +69,9 @@ void Menu(){
                         case 1:
                             NombreTotal();
                             break;
-                        case 2:
+                        /*case 2:
                             MeuilleurEtudiant();
-                            break;
+                            break;*/
                         default:
                             printf("le choix doit enter 1 ou 2");
                     }
@@ -220,9 +227,9 @@ int NombreTotal(){
     return 0;
 }
 
-int MeuilleurEtudiant(){
+/*int MeuilleurEtudiant(){
    for(i = 0; i < 3; i++){
-        if(Etudiants[i].note_general >){
+        if(Etudiants[i].note_general >0){
             printf("Modifier le nom de etudiant : ");
             scanf(" %[^\n]s",Etudiants[i].nom);
 
@@ -233,37 +240,26 @@ int MeuilleurEtudiant(){
             scanf(" %[^\n]s",Etudiants[i].date_de_naissance);
 
             printf("Modifier le departement de etudiant : ");
-            scanf(" %[^\n]s",Etudiants[i].departement);
+            scanf(" %[^\n]s %[^\n]",Etudiants[i].departement,Departemens[i].nom_departement);
 
             printf("Modifier la note general     : ");
             scanf("%f",&Etudiants[i].note_general);
 
-            Trouver = 1;
             break;
         }
-}
+}*/
 
-/*int CalculerMoyenne(){
-    int Somme = 0,j, Trouver = 0;
-    char chercher_departement[50];
-    printf("Chercher sur les etudiants dans une departement : ");
-    scanf(" %[^\n]s", chercher_departement[j]);
-
-    for(i = 0 ; i < nombre_etudiant; i++){
-            if(strcmp(Etudiants[i].departement,chercher_departement)==0){
-                Somme = Somme + Etudiants[i].note_general;
-            }
-                printf("la departement de l etudiant : %s\n", Etudiants[i].departement);
-                printf("la note_general de l etudiant : %.2f\n", Etudiants[i].note_general);
-                    for(j = 0; j <nombre_etudiant;j++ ){
-                        if(strcmp(Etudiants[j].departement,note_general)==0){
-
-                        }
-                    }
-
-            }
+/*void CalculerMoyenne(){
+    int Somme = 0, count;
+    for(i = 0; i < nombre_etudiant; i++){
+        if(strcmp(Etudiants[i].departement, Departemens[i].nom_departement)==0){
+            count ++;
+            Departemens[i].note_general = Etudiants[i].note_general;
+            Somme += Departemens[i].note_general;
         }
-    return 0;
+
+    }
+    printf("%d",Somme);
 }*/
 
 
