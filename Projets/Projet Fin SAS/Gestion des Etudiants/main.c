@@ -434,6 +434,8 @@ void TriEtudiantNoteG(){
     }
 }
 
+getch();
+
 int main()
 {
     Menu();
